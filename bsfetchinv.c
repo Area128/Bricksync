@@ -132,7 +132,7 @@ bsxInventory *bsQueryBrickLinkInventory( bsContext *context )
     reply = bsAllocReply( context, BS_QUERY_TYPE_BRICKLINK, 0, 0, (void *)inv );
 #if 1
     /* Only available inventory */
-    bsBrickLinkAddQuery( context, "GET", "/api/store/v1/inventories", "status=Y", 0, (void *)reply, bsBrickLinkReplyInventory );
+    bsBrickLinkAddQuery( context, "GET", "/api/store/v1/inventories", "status=-S%2C-B%2C-C%2C-R", 0, (void *)reply, bsBrickLinkReplyInventory );
 #else
     /* Available + stockroom? */
     bsBrickLinkAddQuery( context, "GET", "/api/store/v1/inventories", "status=Y%2CS", 0, (void *)reply, bsBrickLinkReplyInventory );
